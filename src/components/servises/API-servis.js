@@ -9,13 +9,13 @@ async function fetchImages(url = '', config = {}) {
   return response.ok
     ? await response.json()
     : Promise.reject(new Error('Not found'));
-}
+};
 
 export function fetchHomeContacts() {
   return fetchImages(`https://61a37875d5e833001729203a.mockapi.io/contacts`);
-}
+};
 
 export function fetchPutContacts() {
   return fetchImages(`https://61a37875d5e833001729203a.mockapi.io/contacts`);
-}
+};
 

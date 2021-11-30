@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <PhoneForm />
       <Filter />
-<Contacts />
+      <Contacts />
     </div>
   );
 }

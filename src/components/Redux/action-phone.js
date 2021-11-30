@@ -1,5 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
-import shortid from 'shortid'
+
 //pending
 export const getContactsRequest = createAction('getcontacts/request');
 
@@ -7,7 +7,11 @@ export const getContactsRequest = createAction('getcontacts/request');
 export const getContactsSuccess = createAction('getcontacts/success')
 
 //reject
-export const getContactsReject = createAction('getcontacts/reject');
+export const getContactsReject = createAction('getcontacts/reject', (error)=>({
+    payload: {
+        message: error,
+     }
+}));
 
 export const deletedContactRequest = createAction('deletecontact/request');
 
@@ -43,10 +47,14 @@ export const addContactError = createAction('Contacts/addContactError', (error) 
     }
 }));
 
-export const filteredContactRequest = createAction('filtered/request');
+export const filteredContactRequest = createAction('filtered/request', (searchValue) =>({
+    payload:{
+       filter: searchValue
+    }
+}));
 
-export const filteredContactSuccess = createAction('filtered/request');
-export const filteredContactError = createAction('filtered/request', (error) => ({
+export const filteredContactSuccess = createAction('filtered/succes');
+export const filteredContactError = createAction('filtered/error', (error) => ({
     payload: {
         message: error
     }

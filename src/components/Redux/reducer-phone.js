@@ -59,7 +59,8 @@ const contactReducer = combineReducers({
 
 
 const filterReducer = createReducer('', {
-'phone/filtered': (state,action) => action.payload
+    'getfiltered/pending': (state,action) => action.meta.arg
+
 } );
 
 

@@ -5,7 +5,7 @@ import * as action from '../../Redux/action-phone'
 import {deletedContact} from '../../Redux/operation-phone'
 
 function Contacts({contacts, onDeleteContact}) {
-console.log(contacts);
+// console.log(contacts);
        return (
 
         <ul className={s.contactsList}>

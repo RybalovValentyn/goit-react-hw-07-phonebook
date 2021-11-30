@@ -9,7 +9,7 @@ axios.defaults.baseURL = 'https://61a37875d5e833001729203a.mockapi.io'
 
 export const getAsyncData = createAsyncThunk('getcontacts', async (searchValue, {rejectWithValue}) =>{
     try { const Data = await fetcContacts.fetchHomeContacts(searchValue)
-    console.log(Data);
+    // console.log(Data);
     return Data
         
     } catch (error) {
@@ -18,7 +18,7 @@ export const getAsyncData = createAsyncThunk('getcontacts', async (searchValue, 
 })
 
 export const addContact = ( name, number) => dispatch => {
-    console.log(name, number);
+    // console.log(name, number);
     const contact = {
         name: name,
         phone: number
@@ -44,20 +44,9 @@ export const addContact = ( name, number) => dispatch => {
       .catch(error => dispatch(action.deletedContactError(error)));
   };
 
-//   export const filteredContact = (searchValue) =>dispatch => {
-//       dispatch(action.filteredContactRequest());
-//       axios
-//       .get(`/contacts?search=${searchValue}`)
-//       .then(({ data }) => {
-//           console.log(data);
-//        dispatch(action.filteredContactSuccess(data))})
-//       .catch(error => dispatch(action.filteredContactError(error)));
-//   }
-
-  export const filteredContact = createAsyncThunk('getcontacts', async (searchValue, {rejectWithValue}) =>{
+  export const filteredContact = createAsyncThunk('getfiltered', async (searchValue, {rejectWithValue}) =>{
     try { const filterData = await  axios.get(`/contacts?search=${searchValue}`)
-    console.log(filterData);
-    return filterData.data
+     return filterData.data
         
     } catch (error) {
       return  rejectWithValue(error)
